@@ -2,5 +2,6 @@
 {
     public partial class Component
     {
+        int y;
     }
 }
