@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>bc831f71-9fb4-4397-9ff9-24fc20f7e2b6</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	  <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles> 
   </PropertyGroup>
 
   <ItemGroup>
