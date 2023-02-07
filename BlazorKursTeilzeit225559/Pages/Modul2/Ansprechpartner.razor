@@ -1,0 +1,12 @@
+﻿@page "/Ansprechpartner"
+@page "/Ansprechpartner/{id:int}/edit"
+@page "/Ansprechpartner/{id:int}"
+<h3>Ansprechpartner @id @Count</h3>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    [Parameter]
+    [SupplyParameterFromQuery()]
+    public string Count { get; set; }
+}
