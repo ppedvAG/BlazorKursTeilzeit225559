@@ -1,0 +1,19 @@
+﻿@page "/nav"
+@inject NavigationManager nm
+<h3>NavSample @nm.Uri</h3>
+
+<a href="nav?data=eins">eins</a>
+<a href="nav?data=zwei" >zwei</a>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        nm.LocationChanged += test;
+    }
+    void test(object sender,LocationChangedEventArgs args)
+    {
+        Console.WriteLine("Huch !");
+
+    }
+}
