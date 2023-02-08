@@ -16,3 +16,6 @@
 * Server-Kommunikation
 * Routing
 *  JavaScript Bridge
+  
+    
+   [Kursinhalte auf ppedv.de](https://ppedv.de/Schulung/Kurse/Blazoraspnetcorerazorvisualstudio.aspx)  
