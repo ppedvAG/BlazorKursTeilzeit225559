@@ -1,5 +1,12 @@
 ﻿<h3>Attribute</h3>
-
+<input @bind="wert" @ref="HannesInput"/>
+<button @onclick="click" >test</button>
+<Ansprechpartner ></Ansprechpartner>
 @code {
-
+    string wert;
+    ElementReference HannesInput;
+    void click()
+    {
+        HannesInput.FocusAsync();
+    }
 }
