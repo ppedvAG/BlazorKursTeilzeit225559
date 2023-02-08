@@ -1,0 +1,34 @@
+﻿@page "/pin"
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedLocalStorage localStorage
+
+<h3>SavePin</h3>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Pin" @bind="eingabe">
+    <button class="btn btn-outline-secondary" type="button" @onclick="save">save</button>
+</div>
+@code {
+    string eingabe;
+    void save()
+    {
+        localStorage.SetAsync("hannes1", eingabe);
+
+    }
+    protected override async Task OnInitializedAsync()
+    {
+
+
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var res = await localStorage.GetAsync<string>("hannes1");
+            if (res.Success)
+            {
+                eingabe = res.Value;
+                StateHasChanged();
+            }
+        }
+    }
+}
