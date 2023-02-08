@@ -18,4 +18,4 @@
 *  JavaScript Bridge
   
     
-    https://ppedv.de/Schulung/Kurse/Blazoraspnetcorerazorvisualstudio.aspx
+   [Kursinhalte auf ppedv.de](https://ppedv.de/Schulung/Kurse/Blazoraspnetcorerazorvisualstudio.aspx)  
