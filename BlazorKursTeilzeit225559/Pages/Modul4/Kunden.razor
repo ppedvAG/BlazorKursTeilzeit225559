@@ -6,15 +6,15 @@
 
     <input class="form-control" @bind-value="filter" @bind-value:event="oninput" />
 
-<ul class="list-group">
+<div class="list-group">
 
         @foreach (var item in db.Customers.Where(x => x.CompanyName.Contains(filter)))
         {
-            <li class="list-group-item">@item.CompanyName</li>
+            <a href="./Modul5/kunden/@item.CustomerId/edit" class="list-group-item">@item.CompanyName</a>
         }
 
 
-</ul>
+</div>
 @code {
    
     string filter = "";
