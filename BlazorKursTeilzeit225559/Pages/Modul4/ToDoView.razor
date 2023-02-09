@@ -1,0 +1,35 @@
+﻿@page "/todo"
+@inject IHttpClientFactory http
+<h3>ToDoView</h3>
+<button class="btn btn-primary " @onclick="laden">laden </button>
+@if (Liste != null)
+{
+   <input class="form-control" @bind-value="filter" @bind-value:event="oninput" /> 
+}
+
+<ul class="list-group">
+    @if (Liste != null)
+    {
+        @foreach (var item in Liste.Where(x=>x.title.Contains(filter,StringComparison.CurrentCultureIgnoreCase)))
+        {
+            <li class="list-group-item">@item.title</li>
+        }
+    }
+    else
+    {
+        <li class="list-group-item bg-warning">Daten laden!</li>
+    }
+
+</ul>
+@code {
+    List<ToDoModel> Liste;
+    string filter = "";
+    async Task laden()
+    {
+        using (var client = http.CreateClient())
+        {
+            Liste = await client.GetFromJsonAsync<List<ToDoModel>>("https://jsonplaceholder.typicode.com/todos");
+        }
+    }
+
+}
