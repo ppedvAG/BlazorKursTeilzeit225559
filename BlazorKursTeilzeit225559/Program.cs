@@ -15,7 +15,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<GlobalState>();
 builder.Services.AddSingleton<ChatVM>();
 builder.Services.AddHttpClient();
-builder.Services.AddDbContext<NorthwindContext>(o=>o.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
+builder.Services.AddDbContext<NorthwindContext>(
+    o=>o.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
