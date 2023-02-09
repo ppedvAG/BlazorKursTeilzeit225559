@@ -1,6 +1,6 @@
 ﻿@page "/person/{id:int?}"
 <h3>Person</h3>
-<EditForm Model="_person" OnSubmit="save">
+<EditForm EditContext="_ctx" OnSubmit="save">
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <div class="mb-3 row">
         <label  class="col-sm-2 col-form-label">Name</label>
@@ -39,6 +39,15 @@
     [Parameter]
     public int id { get; set; }
     Person _person = new Person();
+
+    EditContext _ctx;
+
+    protected override void OnInitialized()
+    {
+        _ctx = new EditContext(_person);
+        _ctx.SetFieldCssClassProvider(new BoostrapFixFieldCSSClassProvider());
+
+    }
     void save(EditContext ctx)
     {
         
