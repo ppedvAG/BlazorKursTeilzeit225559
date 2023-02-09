@@ -1,0 +1,35 @@
+﻿@page "/todoV"
+@inject IHttpClientFactory http
+<h3>ToDoView</h3>
+<button class="btn btn-primary " @onclick="laden">laden </button>
+
+
+<ul class="list-group">
+    @if (Liste != null)
+    {
+       @* @foreach (var item in Liste)
+        {
+            <li class="list-group-item">@item.title</li>
+        }*@
+        <Virtualize Context="item" Items="Liste" OverscanCount="5"  >
+            <li class="list-group-item">@item.title</li>
+        </Virtualize>
+    }
+    else
+    {
+        <li class="list-group-item bg-warning">Daten laden!</li>
+    }
+
+</ul>
+@code {
+    List<ToDoModel> Liste;
+
+    async Task laden()
+    {
+        using (var client = http.CreateClient())
+        {
+            Liste = await client.GetFromJsonAsync<List<ToDoModel>>("https://jsonplaceholder.typicode.com/todos");
+        }
+    }
+
+}
