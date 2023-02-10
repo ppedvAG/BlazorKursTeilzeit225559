@@ -1,8 +1,11 @@
 ﻿@page "/js"
+@using RazorClassLibrary1
 @inject IJSRuntime JsRuntime
 <h3>ComponentJS</h3>
 <button @onclick="localstorage">localstorage </button>
 <button @onclick="prompt">prompt </button>
+<button @onclick="jscall">javascript.js </button>
+<button @onclick="lib">Lib Call</button>
 @eingabe
 @code {
     string eingabe;
@@ -14,6 +17,19 @@
     async Task prompt()
     {
         eingabe=await      JsRuntime.InvokeAsync<string>("prompt", "eingabe");
-  
+
+    }
+    void jscall()
+    {
+        JsRuntime.InvokeVoidAsync("ppedv", "eingabe");
+
+    }
+
+    async Task lib()
+    {
+
+        var lib = new ExampleJsInterop(JsRuntime);
+       eingabe=await lib.Prompt("Nachricht von Sam");
     }
 }
+
