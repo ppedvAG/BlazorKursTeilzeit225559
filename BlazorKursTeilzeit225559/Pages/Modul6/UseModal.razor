@@ -1,0 +1,26 @@
+﻿@page "/modal"
+<h3>UseModal</h3>
+<button type="button" class="btn btn-primary" @onclick="Open" >
+    Launch demo modal
+</button>
+<ModalPPEDV @ref="modal1" Titel="Kunden Eingabe" onsave="save">
+    <div class="container">
+        <input class="form-control" @bind="eingabe" />
+        <input type="checkbox" class="form-check" @bind="Is"/>
+    </div>
+</ModalPPEDV>
+@code {
+    ModalPPEDV modal1;
+    string eingabe;
+    bool Is;
+    void Open()
+    {
+        modal1.Show();
+    }
+    void save()
+    {
+        eingabe = "";
+        Is = false;
+        modal1.Show();
+    }
+}
