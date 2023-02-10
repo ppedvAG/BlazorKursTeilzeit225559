@@ -1,0 +1,19 @@
+﻿@page "/js"
+@inject IJSRuntime JsRuntime
+<h3>ComponentJS</h3>
+<button @onclick="localstorage">localstorage </button>
+<button @onclick="prompt">prompt </button>
+@eingabe
+@code {
+    string eingabe;
+    void localstorage()
+    {
+        //localStorage.setItem('myCat', 'Tom');
+        JsRuntime.InvokeVoidAsync("localStorage.setItem", "myCat", "Tom");
+    }
+    async Task prompt()
+    {
+        eingabe=await      JsRuntime.InvokeAsync<string>("prompt", "eingabe");
+  
+    }
+}
