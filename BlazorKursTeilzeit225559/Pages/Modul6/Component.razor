@@ -1,0 +1,16 @@
+﻿<div @attributes="MyAttributes">
+    @ChildContent</div>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public int MyProperty { get; set; }
+
+    [Parameter(CaptureUnmatchedValues =true)]
+    public Dictionary<string,object> MyAttributes { get; set; }
+
+    [CascadingParameter(Name ="farbe")]
+    public string meineFarbe { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

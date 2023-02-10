@@ -1,0 +1,16 @@
+﻿@page "/params"
+<h3>UseComponent</h3>
+<CascadingValue Value="@("blue")" Name="farbe">
+
+
+<Component MyProperty="42" person="@_person" class="bg-info shadow" width="200" Hanne="toll">
+        <h3>Component</h3>
+        <p>Hannes</p>
+        
+</Component>
+
+</CascadingValue>
+@code {
+    Modul5.Person _person;
+
+}
